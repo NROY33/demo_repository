@@ -22,8 +22,6 @@ schedule_dbt_job:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out
-        uses: actions/checkout@main
 
     - uses: actions/setup-python@v1
         with:
