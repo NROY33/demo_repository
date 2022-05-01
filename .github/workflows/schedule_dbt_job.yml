@@ -34,6 +34,3 @@ jobs:
       # Add dbt seed or other commands here if needed
       - name: Run dbt models
         run: dbt run
-
-      - name: Test dbt models
-        run: dbt test
