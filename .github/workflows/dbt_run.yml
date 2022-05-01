@@ -1,25 +1,29 @@
-# This is a basic workflow to help you get started with Actions
+name: schedule_dbt_job
 
-name: dbt_run
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+schedule:
+    # run at 7AM every single day
+    # https://crontab.guru <-- for generating CRON expression
+    - cron: "0 7 * * *"
+push:
+    branches:
+    # run on push to development branch
+    - main
 env:
 DBT_PROFILES_DIR: ./
 
-DBT_SNOWFLAKE_USERNAME: ${{ secrets.DBT_SNOWFLAKE_USERNAME }}
-DBT_SNOWFLAKE_PW: ${{ secrets.DBT_SNOWFLAKE_PW }}
-DBT_SNOWFLAKE_ROLE: ${{ secrets.DBT_SNOWFLAKE_ROLE }}
+DBT_SNOWFLAKE_USERNAME: "NROY"
+DBT_SNOWFLAKE_PW: "Pass1234"
+DBT_SNOWFLAKE_ROLE: "SYSADMIN"
 
 jobs:
-dbt_run:
-    name: dbt_run
+schedule_dbt_job:
+    name: schedule_dbt_job
     runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out
+        uses: actions/checkout@master
 
     - uses: actions/setup-python@v1
         with:
