@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install dbt
-	    pip install dbt-snowflake
+          pip install dbt-snowflake
           dbt deps --target prod
       
       # Add dbt seed or other commands here if needed
