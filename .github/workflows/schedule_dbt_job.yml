@@ -1,15 +1,19 @@
 name: schedule_dbt_job
 
-on:push
+on:
+  push:
+    branches:
+    # run on push to development branch
+    - main
 env:
-DBT_PROFILES_DIR: ./
+  DBT_PROFILES_DIR: ./
 
 DBT_SNOWFLAKE_USERNAME: "NROY"
 DBT_SNOWFLAKE_PW: "Pass1234"
 DBT_SNOWFLAKE_ROLE: "SYSADMIN"
 
 jobs:
-schedule_dbt_job:
+  schedule_dbt_job:
     name: schedule_dbt_job
     runs-on: ubuntu-latest
 
