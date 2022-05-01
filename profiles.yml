@@ -1,0 +1,14 @@
+default:
+  outputs:
+    dev:
+    type: snowflake
+    threads: 1
+    account: "kb42995.eu-west-2.aws"
+    user: "NROY"
+    role: "SYSADMIN"
+    password: "Pass1234"
+    database: "DBT_CORE_DEMO"
+    warehouse: "COMPUTE_WH"
+    schema: "DEMO_SCHEMA"
+    client_session_keep_alive: False
+    query_tag: github_action_query
